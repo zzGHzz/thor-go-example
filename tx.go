@@ -108,7 +108,7 @@ func signTx(pk *ecdsa.PrivateKey, from thor.Address, clauses []accounts.Clause, 
 
 	raw, err := rlp.EncodeToBytes(t)
 	if err != nil {
-		return nil, nil
+		return nil, err
 	}
 
 	return raw, nil
