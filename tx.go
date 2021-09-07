@@ -7,7 +7,6 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common/hexutil"
@@ -116,8 +115,6 @@ func signTx(pk *ecdsa.PrivateKey, from thor.Address, clauses []accounts.Clause, 
 
 func sendRawTx(url string, raw []byte) (thor.Bytes32, error) {
 	body := transactions.RawTx{Raw: hexutil.Encode(raw)}
-
-	fmt.Println(getJSONString(body))
 
 	jsonValue, err := json.Marshal(body)
 	if err != nil {

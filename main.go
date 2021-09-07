@@ -147,10 +147,15 @@ func testAccAPI(url string) {
 	if acc, err := getAccount(url, addr); err != nil {
 		panic(err)
 	} else {
-		fmt.Printf("testAccAPI: get account balance: \n\t%s\n", getJSONString(acc))
-		fmt.Printf("\tVET balance: %s\n", printBalance(acc.Balance, 2))
-		fmt.Printf("\tVTHO balance: %s\n", printBalance(acc.Energy, 2))
-		fmt.Printf("\tIf has code: %t\n\n", acc.HasCode)
+		fmt.Printf(`testAccAPI: get account balance: 
+	%s
+	tVET balance: %s
+	tVTHO balance: %s
+	If has code: %t`+"\n\n",
+			getJSONString(acc),
+			printBalance(acc.Balance, 2),
+			printBalance(acc.Energy, 2),
+			acc.HasCode)
 	}
 }
 
